@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_height">88dp</dimen>
+    <dimen name="big_cover">300dp</dimen>
+    <dimen name="medium_cover">150dp</dimen>
+    <dimen name="standard_padding">16dp</dimen>
+    <dimen name="bigger_padding">24dp</dimen>
+    <dimen name="album_name">24sp</dimen>
+    <dimen name="artist_name">36sp</dimen>
+    <dimen name="seekbar_height">32dp</dimen>
+    <dimen name="small_button">48dp</dimen>
+    <dimen name="large_button">88dp</dimen>
+</resources>

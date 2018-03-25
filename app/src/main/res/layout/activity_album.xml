@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/album_cover"
+        android:layout_width="@dimen/medium_cover"
+        android:layout_height="@dimen/medium_cover"
+        android:layout_margin="@dimen/standard_padding"
+        tools:src="@drawable/killemall_big" />
+
+    <TextView
+        android:id="@+id/album_upper_text"
+        style="@style/ListText"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_toRightOf="@id/album_cover"
+        android:gravity="bottom"
+        android:textSize="@dimen/album_name"
+        tools:text="Kill'Em All" />
+
+    <TextView
+        android:id="@+id/album_lower_text"
+        style="@style/ListText"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_below="@id/album_upper_text"
+        android:layout_toRightOf="@id/album_cover"
+        tools:text="Metallica" />
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/album_cover"
+        android:drawSelectorOnTop="true"
+        android:orientation="vertical" />
+
+</RelativeLayout>
