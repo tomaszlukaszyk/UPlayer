@@ -12,12 +12,20 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/library"
+            style="@style/ListText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/standard_padding"
+            android:text="@string/library_button" />
+
         <ImageView
             android:id="@+id/player_album_cover"
             android:layout_width="@dimen/big_cover"
             android:layout_height="@dimen/big_cover"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/standard_padding"
+            android:layout_marginBottom="@dimen/standard_padding"
             tools:src="@drawable/killemall_big" />
 
         <TextView

@@ -1,6 +1,10 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">U-Player</string>
     <string name="songs_category">Songs</string>
     <string name="artists_category">Artists</string>
     <string name="album_category">Albums</string>
+    <string name="library_button">Go back to library</string>
+    <string name="album_activity">Album: <xliff:g id="album_title">%s</xliff:g></string>
+    <string name="artist_activity">Artist: <xliff:g id="artist_name">%s</xliff:g></string>
+    <string name="player_activity">Song: <xliff:g id="song_title">%s</xliff:g></string>
 </resources>

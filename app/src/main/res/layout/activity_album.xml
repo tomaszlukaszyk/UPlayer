@@ -5,8 +5,18 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <TextView
+        android:id="@+id/library"
+        style="@style/ListText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/standard_padding"
+        android:paddingLeft="@dimen/standard_padding"
+        android:text="@string/library_button" />
+
     <ImageView
         android:id="@+id/album_cover"
+        android:layout_below="@id/library"
         android:layout_width="@dimen/medium_cover"
         android:layout_height="@dimen/medium_cover"
         android:layout_margin="@dimen/standard_padding"
@@ -14,6 +24,7 @@
 
     <TextView
         android:id="@+id/album_upper_text"
+        android:layout_below="@id/library"
         style="@style/ListText"
         android:layout_width="match_parent"
         android:layout_height="91dp"

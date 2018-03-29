@@ -3,6 +3,7 @@ package com.example.android.u_player;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,14 +22,12 @@ import java.util.List;
  */
 public class ArtistFragment extends Fragment {
 
-
     public ArtistFragment() {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.list_view, container, false);
 
@@ -91,5 +90,4 @@ public class ArtistFragment extends Fragment {
 
         return rootView;
     }
-
 }

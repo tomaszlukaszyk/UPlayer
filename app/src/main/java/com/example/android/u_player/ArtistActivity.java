@@ -15,19 +15,19 @@ import java.util.Comparator;
 
 public class ArtistActivity extends AppCompatActivity {
 
-    String mArtistName;
-    TextView mArtistNameTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist);
 
         // Get the desired artist name to display from ArtistFragment
-        mArtistName = getIntent().getStringExtra("artist");
+        String mArtistName = getIntent().getStringExtra("artist");
+
+        // Set the label for the activity
+        setTitle(getString(R.string.artist_activity, mArtistName));
 
         // Set the artist name to the view
-        mArtistNameTextView = findViewById(R.id.artist_name);
+        TextView mArtistNameTextView = findViewById(R.id.artist_name);
         mArtistNameTextView.setText(mArtistName);
 
         // Get the artist name of every song from array resource file and put them in Array object
@@ -86,5 +86,14 @@ public class ArtistActivity extends AppCompatActivity {
             }
         });
 
+        // Set on click listener to take user back to library
+        TextView mLibraryButton = findViewById(R.id.library);
+        mLibraryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ArtistActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

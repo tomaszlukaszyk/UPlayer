@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class SongAdapter extends ArrayAdapter<Song> {
 
-    public SongAdapter(Context context, ArrayList<Song> songs) {
+    SongAdapter(Context context, ArrayList<Song> songs) {
         super(context, 0, songs);
     }
 
@@ -40,13 +40,14 @@ public class SongAdapter extends ArrayAdapter<Song> {
         TextView songTitle = listItemView.findViewById(R.id.list_upper_text);
         // Get the upper text from the current Song object and
         // set this text on the TextView
+        assert currentSong != null;
         songTitle.setText(currentSong.getUpperText());
 
         // Find the TextView in the list_item.xml layout with the ID list_lower_text
         TextView artistName = listItemView.findViewById(R.id.list_lower_text);
         // Get the lower text from the current Song object and
         // set this text on the TextView
-        if (currentSong.hasAlbumCover()) {
+        if (currentSong.hasLowerText()) {
             // make sure the text is visible
             artistName.setVisibility(View.VISIBLE);
             // set the TextView to the text specified in the current Song object

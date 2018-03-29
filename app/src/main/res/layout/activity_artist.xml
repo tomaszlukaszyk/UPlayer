@@ -8,6 +8,15 @@
     tools:context="com.example.android.u_player.ArtistActivity">
 
     <TextView
+        android:id="@+id/library"
+        style="@style/ListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/standard_padding"
+        android:paddingLeft="@dimen/standard_padding"
+        android:text="@string/library_button" />
+
+    <TextView
         android:id="@+id/artist_name"
         style="@style/ListText"
         android:layout_width="match_parent"

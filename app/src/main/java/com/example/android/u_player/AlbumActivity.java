@@ -14,28 +14,25 @@ import java.util.ArrayList;
 
 public class AlbumActivity extends AppCompatActivity {
 
-    String mAlbumTitle;
-    String mArtistName;
-    ImageView mAlbumCoverImageView;
-    TextView mAlbumTitleTextView;
-    TextView mArtistNameTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
 
         // Get the desired album title and artist name to display from AlbumFragment
-        mAlbumTitle = getIntent().getStringExtra("album");
-        mArtistName = getIntent().getStringExtra("artist");
+        String mAlbumTitle = getIntent().getStringExtra("album");
+        String mArtistName = getIntent().getStringExtra("artist");
+
+        // Set the label for the activity
+        setTitle(getString(R.string.album_activity, mAlbumTitle));
 
         // Find view displaying cover of the album
-        mAlbumCoverImageView = findViewById(R.id.album_cover);
+        ImageView mAlbumCoverImageView = findViewById(R.id.album_cover);
         // Find view displaying album title and set the title from intent
-        mAlbumTitleTextView = findViewById(R.id.album_upper_text);
+        TextView mAlbumTitleTextView = findViewById(R.id.album_upper_text);
         mAlbumTitleTextView.setText(mAlbumTitle);
         // Find view displaying artist name and set the name from intent
-        mArtistNameTextView = findViewById(R.id.album_lower_text);
+        TextView mArtistNameTextView = findViewById(R.id.album_lower_text);
         mArtistNameTextView.setText(mArtistName);
 
         // Get the song title of every song from array resource file and put them in Array object
@@ -93,5 +90,14 @@ public class AlbumActivity extends AppCompatActivity {
             }
         });
 
+        // Set on click listener to take user back to library
+        TextView mLibraryButton = findViewById(R.id.library);
+        mLibraryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AlbumActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

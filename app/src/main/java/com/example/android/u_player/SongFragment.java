@@ -4,6 +4,7 @@ package com.example.android.u_player;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,12 @@ import java.util.Comparator;
  */
 public class SongFragment extends Fragment {
 
-
     public SongFragment() {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.list_view, container, false);
 
@@ -39,7 +38,7 @@ public class SongFragment extends Fragment {
         final TypedArray albumCover = getResources().obtainTypedArray(R.array.album_cover);
 
         // Create a list of Song objects
-        final ArrayList<Song> songs = new ArrayList<Song>();
+        final ArrayList<Song> songs = new ArrayList<>();
         for (int i = 0; i < songTitle.length; i++) {
             songs.add(new Song(songTitle[i], artistName[i], albumCover.getResourceId(i, -1), true));
         }

@@ -1,5 +1,6 @@
 package com.example.android.u_player;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,17 +8,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class PlayerActivity extends AppCompatActivity {
 
-    boolean mPlaybackState = true;
-    String mSongTitle;
-    TextView mSongTitleTextView;
-    TextView mArtistNameTextView;
-    TextView mSongDurationTextView;
-    ImageView mAlbumCoverImageView;
-    ImageView mPlayPauseButton;
+    private boolean mPlaybackState = true;
+    private ImageView mPlayPauseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +19,21 @@ public class PlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_player);
 
         // Get the title of desired song from previous Activity
-        mSongTitle = getIntent().getStringExtra("song");
+        String mSongTitle = getIntent().getStringExtra("song");
+
+        // Set the label for the activity
+        setTitle(getString(R.string.player_activity, mSongTitle));
 
         // Find the view displaying song title and set the title of desired song
-        mSongTitleTextView = findViewById(R.id.player_upper_text);
+        TextView mSongTitleTextView = findViewById(R.id.player_upper_text);
         mSongTitleTextView.setText(mSongTitle);
 
         // Find view displaying artist name
-        mArtistNameTextView = findViewById(R.id.player_lower_text);
+        TextView mArtistNameTextView = findViewById(R.id.player_lower_text);
         // Find view displaying duration of the song
-        mSongDurationTextView = findViewById(R.id.duration);
+        TextView mSongDurationTextView = findViewById(R.id.duration);
         // Find view displaying cover of the album from which the desired song comes from
-        mAlbumCoverImageView = findViewById(R.id.player_album_cover);
+        ImageView mAlbumCoverImageView = findViewById(R.id.player_album_cover);
         // Find view displaying play/pause button
         mPlayPauseButton = findViewById(R.id.play_pause);
 
@@ -52,8 +49,8 @@ public class PlayerActivity extends AppCompatActivity {
         // Search the songTitle array and find index of song title equal to title from intent
         // and than set artist name, song duration and album cover from data arrays with found index
         // to corresponding views
-        for (int i =0; i < songTitle.length; i++){
-            if (songTitle[i].equals(mSongTitle)){
+        for (int i = 0; i < songTitle.length; i++) {
+            if (songTitle[i].equals(mSongTitle)) {
                 mArtistNameTextView.setText(artistName[i]);
                 mSongDurationTextView.setText(songDuration[i]);
                 mAlbumCoverImageView.setImageResource(albumCoverBig.getResourceId(i, -1));
@@ -74,5 +71,14 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
 
+        // Set on click listener to take user back to library
+        TextView mLibraryButton = findViewById(R.id.library);
+        mLibraryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlayerActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

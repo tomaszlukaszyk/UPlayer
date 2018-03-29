@@ -11,13 +11,13 @@ public class Song {
     // Indicates that there is no album cover to show
     private static final int NO_ALBUM_COVER = -1;
     // Holds text to be displayed in upper TextView in layout
-    private String mUpperText;
+    private final String mUpperText;
     // Holds text to be displayed in lower TextView in layout
     private String mLowerText = NO_LOWER_TEXT;
     // Holds resource ID for the album cover
     private int mAlbumCover = NO_ALBUM_COVER;
     // Information whether or not to display play arrow icon
-    private boolean mDisplayPlayArrow;
+    private final boolean mDisplayPlayArrow;
 
     /**
      * Create new Song object
@@ -46,33 +46,32 @@ public class Song {
     }
 
     // Get the text for upper TextView
-    public String getUpperText() {
+    String getUpperText() {
         return mUpperText;
     }
 
     // Get the text for lower TextView
-    public String getLowerText() {
+    String getLowerText() {
         return mLowerText;
     }
 
     // Returns whether or not there is lower text to display
-    public boolean hasLowerText() {
+    boolean hasLowerText() {
         return !mLowerText.equals(NO_LOWER_TEXT);
     }
 
     // Get the resource ID of the album cover
-    public int getAlbumCover() {
+    int getAlbumCover() {
         return mAlbumCover;
     }
 
     // Returns whether or not there is album cover to display
-    public boolean hasAlbumCover() {
+    boolean hasAlbumCover() {
         return mAlbumCover != NO_ALBUM_COVER;
     }
 
     // Get the information whether or not to display play arrow icon
-    public boolean getDisplayArrowIcon() {
+    boolean getDisplayArrowIcon() {
         return mDisplayPlayArrow;
     }
-
 }
